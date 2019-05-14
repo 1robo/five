@@ -359,9 +359,11 @@ class Five(object):
             self.label["text"]= "双方打平！"
 
     def reTrain(self):
-        """训练方法"""
-        
-         
+        '''
+        下一版本加入功能
+        CNN 卷积神经网络 进行深度学习训练
+        透过大量的保存的棋谱文件自己找出对应的逻辑与抽象概念。
+        ''' 
 
     def resetButton(self):
         """重置按钮的回调函数，实现了整个棋盘重置"""
@@ -477,27 +479,29 @@ class Five(object):
 
 
      
-        self.b0 = Button(self.window, text="  开始下棋  ", command=self.startButton)
+        self.b0 = Button(self.window, text="  开 始 下 棋  ", command=self.startButton)
         self.b0.place(relx=0, rely=0, x=835, y=150)
 
-        b1 = Button(self.window, text="  重置游戏  ", command=self.resetButton)
+        b1 = Button(self.window, text="  重 置 游 戏  ", command=self.resetButton)
         b1.place(relx=0, rely=0, x=835, y=200)
 
-        self.label = Label(self.window, text="请选择对手后\n点[开始下棋]", background="#EEEEEE", font="黑体")
+        self.label = Label(self.window, text="请选择双方对手\n点[开始下棋]", background="#EEEEEE", font="黑体")
         self.label.place(relx=0, rely=0, x=835, y=300)    
 
   
-
-        b3 = Button(self.window, text="  打开棋谱  ", command=self.OpenFile)
+        b3 = Button(self.window, text="  开 始 训 练  ", command=self.reTrain ,state="disabled")
         b3.place(relx=0, rely=0, x=835, y=400)
-
-        b4 = Button(self.window, text="  保存棋谱  ", command=self.SaveFile)
-        b4.place(relx=0, rely=0, x=835, y=450)
+        
+        b3 = Button(self.window, text="  打 开 棋 谱  ", command=self.OpenFile)
+        b3.place(relx=0, rely=0, x=835, y=450)
+ 
+        b4 = Button(self.window, text="  保 存 棋 谱  ", command=self.SaveFile)
+        b4.place(relx=0, rely=0, x=835, y=500)
 
         info = Label(self.window, text=":::游戏说明:::\n\n\
-人类点鼠标左键下棋\n空格键切换数字显示\n退格键可进行悔棋\n\n\
-下棋可以保存为棋谱\n机器学习可反复训练",padx=0, pady=5, bd=6, font="黑体")
-        info.place(relx=0, rely=0, x=800, y=550)
+人类点鼠标左键下棋\n空格键切换数字显示\n\n\
+下棋过程可保存棋谱\n机器学习可反复训练",padx=0, pady=5, bd=6, font="黑体")
+        info.place(relx=0, rely=0, x=800, y=590)
 
         self.window.mainloop()
 
