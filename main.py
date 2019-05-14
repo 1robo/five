@@ -1,8 +1,9 @@
 """
-人工智能博弈与决策课程-五子棋
-中科智芯 张磊
-2019年
+- 小智五子棋 -
+人工智能博弈与决策课程
+中科智芯 张磊 2019年5月
 """
+
 import tkinter
 import time
 from tkinter import ttk  
@@ -16,7 +17,6 @@ from sgfile import SGFflie
 from tkinter.filedialog import askopenfilename
 from tkinter import *
 
-import tensorflow as tf
 import time
 import copy
 import os
