@@ -33,8 +33,8 @@ class robot(object):
         if (num1==0) : return(row//2,column//2,9999) #棋盘正中落第一子
 
         if num1 > num2 : #该白棋下
-            player_number = 1
-            enemy_number = 2
+            player_number = 2
+            enemy_number = 1
         else : #该黑棋下
             player_number = 1
             enemy_number = 2
