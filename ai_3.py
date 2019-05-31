@@ -17,7 +17,7 @@ class robot(object):
     def getName(self):
         return rc.robots_name[self.getKind()]
 
-    def getPos(self,num,boardlist,player_number):
+    def getPos(self,boardlist):
   
         row = column = len(boardlist)
 
