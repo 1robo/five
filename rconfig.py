@@ -9,14 +9,16 @@ import ai_2
 import ai_3
 
 
-robots_name=("=普通人类=","人工智能V1号","人工智能V2号","人工智能V3号")
+
+
 
 robots_file=("human","ai_1","ai_2","ai_3")
 
+robots_name=[]
 
-
-
-
+for item in robots_file :
+        robots_name.append(eval(item).robot().getName())
+        
 #棋盘大小
 row=19    
 column=19
@@ -26,6 +28,7 @@ def getRobot(tmp):
         for i in range(len(robots_name)):
                 if tmp==robots_name[i]:
                         return eval(robots_file[i]).robot()
+
 
 
 

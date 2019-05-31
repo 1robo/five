@@ -264,9 +264,9 @@ class Five(object):
              
 
         #判断某一点连子数目
-    def many(self,n,i,j):
+    def counting(self,bw,i,j):
     
-        if not(self.boardlist[i][j]==n):#判断是否是该棋子
+        if not(self.boardlist[i][j]==bw):#判断是否为黑棋或白棋
             return 0
         else:
             n1=n2=n3=n4=1
@@ -330,7 +330,7 @@ class Five(object):
     def judge(self):
         for i in range(0,rc.row):
             for j in range(0, rc.column):
-                how_many=self.many(1,i,j)
+                how_many=self.counting(1,i,j)   #统计黑棋
                 if how_many==5:
                     self.flag=1
                     self.showSucess()
@@ -338,7 +338,7 @@ class Five(object):
                     self.label["text"]=self.robot1.getName()+"\n持黑第"+str(self.num)+"手胜!"
                    
                     return 
-                how_many=self.many(2,i,j)
+                how_many=self.counting(2,i,j)       #统计白棋
                 if how_many==5:
                     self.flag=2
                     self.showSucess()

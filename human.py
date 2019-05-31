@@ -8,4 +8,4 @@ class robot(object):
         return -1
 
     def getName(self):
-        return "人类"
+        return "==普通人类=="
