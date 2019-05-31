@@ -1,11 +1,9 @@
 '''
 2号机器人
 
+智能机器  类定义开始
+
 '''
-
-import copy
-
-'''智能机器  类定义开始'''
  
 class robot(object):
    
@@ -98,11 +96,14 @@ def getScore(s):  #对具体某个方向的打分
 
 
 
+
 #判断在某一点的八个方向分数总和
 def oneScore(boardlist,player,i,j):
     score=0
-    fake=copy.deepcopy(boardlist) #复制棋盘
-    fake[i][j]=player #模拟在该位置落子
+    
+    boardbak = boardlist[i][j]  #备份i,j位置的棋盘状态
+    
+    boardlist[i][j]=player #模拟在该位置落子
 
     row = column = len(boardlist)
     
@@ -121,17 +122,17 @@ def oneScore(boardlist,player,i,j):
     u_d=l_r=lu_rd=ru_ld=''
     #将四个方向的棋子序列转化为字符串
     for k in range(up,down+1):#竖直方向
-        u_d+=str(fake[k][j])
+        u_d+=str(boardlist[k][j])
     for k in range(left,right+1):#水平方向
-        l_r+=str(fake[i][k])
+        l_r+=str(boardlist[i][k])
     for k in range(leftup,0,-1):#左上到右下
-        lu_rd+=str(fake[i-k][j-k])
+        lu_rd+=str(boardlist[i-k][j-k])
     for k in range(rightdown+1):
-        lu_rd+=str(fake[i+k][j+k])
+        lu_rd+=str(boardlist[i+k][j+k])
     for k in range(rightup,0,-1):
-        ru_ld+=str(fake[i-k][j+k])#右上到左下
+        ru_ld+=str(boardlist[i-k][j+k])#右上到左下
     for k in range(leftdown+1):
-        ru_ld+=str(fake[i+k][j-k])
+        ru_ld+=str(boardlist[i+k][j-k])
 
     #转化为point函数能处理的格式
     u_d=doCheck(u_d,player)
@@ -139,6 +140,8 @@ def oneScore(boardlist,player,i,j):
     lu_rd=doCheck(lu_rd,player)
     ru_ld=doCheck(ru_ld,player)
 
+    boardlist[i][j] = boardbak  #恢复棋盘i,j位置的状态
+    
     #计算总分数
     for s in (u_d,l_r,lu_rd,ru_ld):
         score+=getScore(s)
