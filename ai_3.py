@@ -54,7 +54,7 @@ class robot(object):
                         x=j
                         y=i
         
-        return (x,y)
+        return (x,y,max_score)
     
 '''智能机器  类定义结束'''
 
