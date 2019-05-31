@@ -413,7 +413,7 @@ class Five(object):
          if self.flag ==0:  #棋局未结束
             if self.robot1.getKind() == -1: return #该人类下 直接退出
             self.num += 1
-            x,y,score=self.robot1.getPos(self.num,self.boardlist,1)#查找最优位置
+            x,y,score=self.robot1.getPos(self.boardlist)#查找最优位置
             self.down(x,y,1,score) #落子
         
 
@@ -421,7 +421,7 @@ class Five(object):
         if self.flag ==0:  #棋局未结束
             if self.robot2.getKind() == -1: return #该人类下 直接退出
             self.num += 1
-            x,y,score=self.robot2.getPos(self.num,self.boardlist,2)#查找最优位置
+            x,y,score=self.robot2.getPos(self.boardlist)#查找最优位置
             self.down(x,y,2,score) #落子
        
 
