@@ -18,20 +18,33 @@ class robot(object):
         return rc.robots_name[self.getKind()]
 
     def getPos(self,num,boardlist,player_number):
-        
-        if num == 1 : return(rc.row//2,rc.column//2,9999) #棋盘正中落第一子
+  
+        row = column = len(boardlist)
 
-        if player_number==1:
-            enemy_number=2
-        else:
-            enemy_number=1
+        num1 = num2 = 0   #初始化黑棋和白棋的计数
+        
+        for i in range(row):
+            for j in range(column):
+                if boardlist[i][j]==1 :
+                    num1 +=1
+                elif boardlist[i][j]==2 :
+                    num2 +=1
+
+        if (num1==0) : return(row//2,column//2,9999) #棋盘正中落第一子
+
+        if num1 > num2 : #该白棋下
+            player_number = 1
+            enemy_number = 2
+        else : #该黑棋下
+            player_number = 1
+            enemy_number = 2
 
         max_score=0
         x = -1
         y = -1
         
-        for i in range(rc.row):
-            for j in range(rc.column):
+        for i in range(row):
+            for j in range(column):
                 if boardlist[i][j]!=1 and boardlist[i][j]!=2:
                     my_score=one_score(boardlist,player_number,i,j)
                     enemy_score=one_score(boardlist,enemy_number,i,j)
@@ -41,7 +54,7 @@ class robot(object):
                         x=j
                         y=i
         
-        return (x,y,max_score)
+        return (x,y)
     
 '''智能机器  类定义结束'''
 
