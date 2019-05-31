@@ -5,7 +5,6 @@
 """
 
 import tkinter
-import time
 from tkinter import ttk  
 from tkinter import scrolledtext  
 from tkinter import Menu  
@@ -13,12 +12,9 @@ from tkinter import Spinbox
 from tkinter import messagebox as mBox
 from sgfile import SGFflie
 
-
 from tkinter.filedialog import askopenfilename
 from tkinter import *
 
-import time
-import copy
 import os
 import sys
 import rconfig as rc
@@ -446,8 +442,8 @@ class Five(object):
             print(str(self.num)+" "+self.robot2.getName()+" 白棋 ["+str(x)+","+str(y)+"] 分数"+str(score))
             self.label["text"] = "第"+str(self.num)+"手白棋\n横"+str(x)+"竖"+str(y)  
         self.judge()
-        self.canvas.update()  #0.3秒后立刻更新画布
-        self.canvas.after(300)
+        self.canvas.update()  #立刻更新画布并延时
+        self.canvas.after(rc.delay)
         
         if self.flag == 0: #棋局没有结束，继续下
             if bw == 1 :
